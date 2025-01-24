@@ -10,7 +10,7 @@ public class Playlist {
      * (CarDealership, Zoo) for structure on how this will look
      */
 
-
+     private ArrayList<Song> playlist;
 
 
      /**
@@ -18,9 +18,12 @@ public class Playlist {
       * then use additional methods to add Songs in one-by-one
       */
 
-
-      
-
+      public Playlist()
+      {
+          // initialize instance variables
+        playlist = new ArrayList<Song>();
+      }
+  
       /**
        * Methods-- Remember that you need to be able to complete all of the following:
        * Adding a song
@@ -31,4 +34,23 @@ public class Playlist {
        * Determining the total duration of all songs
        * Removing all unliked songs from the playlist (careful with this one!)
        */
+
+       public void addSong(String songName)
+       {
+           playlist.add(songName);
+       }
+
+       public void likeSong()
+       {
+
+       }
+
+       public String getSongs(String songs)
+       {
+        for (Song  : playlist)
+         {
+             sum += num;
+         }
+         return sum / nums.size();
+       }
 }
