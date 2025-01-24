@@ -1,11 +1,15 @@
 /**
  * File for a Song class to be used in the Playlist Project
- * @author
- * @version
+ * @author 
+ * @version 1
  */
 public class Song {
     //Fields-- what information do we want each Song to store?
-
+ 
+    private String title;
+    private String artist;
+    private String duration;
+    private boolean like;
 
 
 
@@ -13,8 +17,19 @@ public class Song {
      * Constructor-- what information needs to be given to make a Song?
      * How will you handle 'liked' songs? It makes sense for a Song not be 'liked' by default
      */
+    public Song(String title, String artist, String duration){
+        this.title = title;
+        this.artist = artist;
+        this.duration = duration;
+        like = false;
+    }
 
-
+    public Song(String title, String artist, String duration, boolean like){
+        this.title = title;
+        this.artist = artist;
+        this.duration = duration;
+        this.like = like;
+    }
 
 
 
