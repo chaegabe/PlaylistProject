@@ -45,12 +45,28 @@ public class Playlist {
 
        }
 
-       public String getSongs(String songs)
+       public String removeSongs()
        {
-        for (Song  : playlist)
-         {
-             sum += num;
-         }
-         return sum / nums.size();
+
+       }
+
+       public String getSongs()
+       {
+
+       }
+
+       public Boolean getLiked()
+       {
+
+       }
+
+       public String getDuration()
+       {
+
+       }
+
+       public void removeUnlikes()
+       {
+
        }
 }
