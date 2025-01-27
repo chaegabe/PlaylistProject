@@ -86,12 +86,7 @@ public class Playlist {
 
 
        public void removeUnlikes() //W.I.P
-      {
-         for (Song song: playlist){
-            if (!(song.getLike())){
-               int pos = getPosition(song);
-               playlist.remove(pos);
-            }
-         }
-      }
+       {
+         
+       }
 }
