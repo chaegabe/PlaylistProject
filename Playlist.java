@@ -39,23 +39,23 @@ public class Playlist {
           playlist.add(title);
        }
 
-       public void likeSong(Song song)
+       public void likeSong(int x)
        {
-          song.like();
+         playlist.get(x).like();
        }
 
-       public void removeSongs(Song title)
+       public void removeSongs(int x)
        {
-          playlist.remove(title);
+          playlist.remove(x);
        }
 
-       public void getSongs(Song title)
+       public void getSongs()
        {
           for (Song song: playlist) 
-          System.out.println(song.getTitle());
+          System.out.println(song.toString());
        }
 
-       public void getLiked(Song like)
+       public void getLiked()
        {
         for (Song song: playlist) 
         System.out.println(song.getLike());
