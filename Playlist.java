@@ -12,7 +12,6 @@ public class Playlist {
 
      private ArrayList<Song> playlist;
 
-
      /**
       * Constructor-- this doesn't need any parameters. You should just initialize the ArrayList and
       * then use additional methods to add Songs in one-by-one
@@ -35,34 +34,37 @@ public class Playlist {
        * Removing all unliked songs from the playlist (careful with this one!)
        */
 
-       public void addSong(String songName)
+       public void addSong(Song title)
        {
-           playlist.add(songName);
+          playlist.add(title);
        }
 
-       public void likeSong()
+       public void likeSong(Song song)
        {
-
+          song.like();
        }
 
-       public String removeSongs()
+       public void removeSongs(Song title)
        {
-
+          playlist.remove(title);
        }
 
-       public String getSongs()
+       public void getSongs(Song title)
        {
-
+          for (Song song: playlist) 
+          System.out.println(song.getTitle());
        }
 
-       public Boolean getLiked()
+       public void getLiked(Song like)
        {
-
+        for (Song song: playlist) 
+        System.out.println(song.getLike());
        }
 
-       public String getDuration()
+       public void getDuration()
        {
-
+        for (Song song: playlist) 
+        System.out.println(song.getDuration());
        }
 
        public void removeUnlikes()
