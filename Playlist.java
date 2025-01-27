@@ -66,8 +66,19 @@ public class Playlist {
 
        public void getDuration()
        {
+         int totalMinutes = 0;
+         int totalSeconds = 0;
+
         for (Song song: playlist) 
-        System.out.println(song.getDuration());
+         {
+            int minutes = Integer.parseInt(song.getDuration().substring(0,1));
+            totalMinutes = totalMinutes + minutes;
+
+            int seconds = Integer.parseInt(song.getDuration().substring(2,4));
+            totalSeconds = totalSeconds + seconds;
+
+         }
+         System.out.println((totalMinutes + (totalSeconds / 60)) + " Minutes " + (totalSeconds - ((totalSeconds / 60) * 60)) + " Seconds"); //NEED TO FIX SECONDS
        }
 
       public int getPosition(Song x){
