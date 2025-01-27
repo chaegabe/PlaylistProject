@@ -56,10 +56,13 @@ public class Playlist {
        }
 
        public void getLiked()
-       {
-        for (Song song: playlist) 
-        System.out.println(song.getLike());
-       }
+      {
+         for (Song song: playlist){
+            if (song.getLike()){
+               System.out.println(song.toString());
+            }
+         }
+      }
 
        public void getDuration()
        {
@@ -67,8 +70,28 @@ public class Playlist {
         System.out.println(song.getDuration());
        }
 
+      public int getPosition(Song x){
+         int pos = 0;
+         int fpos = 0;
+         for (Song song : playlist){
+            if (x.getTitle().equals(song.getTitle())){
+               fpos = pos;
+            }
+            else{
+               pos++;
+            }
+         }
+         return fpos;
+      }
+
+
        public void removeUnlikes() //W.I.P
-       {
-         
-       }
+      {
+         for (Song song: playlist){
+            if (!(song.getLike())){
+               int pos = getPosition(song);
+               playlist.remove(pos);
+            }
+         }
+      }
 }
