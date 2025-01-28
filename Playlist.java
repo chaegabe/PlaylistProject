@@ -2,102 +2,112 @@ import java.util.ArrayList;
 
 /**
  * The Playlist class, which will keep track of a playlist of Song objects
- * Refer to the project description to make sure you have access to all available methods
- */
-public class Playlist {
-    /**
-     * Fields-- This will likely just need to be the ArrayList of Songs. Reference our previous problems
-     * (CarDealership, Zoo) for structure on how this will look
-     */
-
-     private ArrayList<Song> playlist;
-
-     /**
-      * Constructor-- this doesn't need any parameters. You should just initialize the ArrayList and
-      * then use additional methods to add Songs in one-by-one
-      */
-
-      public Playlist()
-      {
-          // initialize instance variables
-        playlist = new ArrayList<Song>();
-      }
-  
-      /**
-       * Methods-- Remember that you need to be able to complete all of the following:
+ * and mutate them accordingly
+ * Methods--
        * Adding a song
        * 'liking' a song
        * Removing a specific song
-       * Examining all Songs (a String return or void print makes sense here)
+       * Examining all Songs
        * Examining a sublist of all liked songs
-       * Determining the total duration of all songs
-       * Removing all unliked songs from the playlist (careful with this one!)
-       */
+       * Determining the total duration of all songs (careful with this one!)
+ * @author Eli Axel + Gabriel Chae
+ * @version 1-28-2025
+ */
+public class Playlist {
+    
+   private ArrayList<Song> playlist;
 
-       public void addSong(Song title)
-       {
-          playlist.add(title);
-       }
+   /**
+   * Constructor for playlist
+   */
+   public Playlist()
+   {
+      playlist = new ArrayList<Song>();
+   }
+   
+   /**
+    * adds a song to the playlist
+    * @param song to add
+    */
+   public void addSong(Song title)
+   {
+      playlist.add(title);
+   }
 
-       public void likeSong(int x)
-       {
-         playlist.get(x).like();
-       }
+   /**
+    * likes a song in position x
+    * @param int position x
+    */
+   public void likeSong(int x)
+   {
+      playlist.get(x).like();
+   }
 
-       public void removeSongs(int x)
-       {
-          playlist.remove(x);
-       }
+   /**
+    * removes a song in position
+    * @param int position x
+    */
+   public void removeSongs(int x)
+   {
+      playlist.remove(x);
+   }
 
-       public void getSongs()
-       {
-          for (Song song: playlist) 
-          System.out.println(song.toString());
-       }
+   /**
+    * prints all songs in the playlist using .toString method
+    */
+   public void getSongs()
+   {
+      for (Song song: playlist) 
+      System.out.println(song.toString());
+   }
 
-       public void getLiked()
+   /**
+    * prints only the liked songs in the playlist
+    */
+   public void getLiked()
+   {
+      for (Song song: playlist){
+         if (song.getLike()){
+            System.out.println(song.toString());
+         }
+      }
+   }
+
+   /**
+    * gets the total duration of all the songs and prints it
+    */
+   public void getDuration()
+   {
+      int totalMinutes = 0;
+      int totalSeconds = 0;
+
+      for (Song song: playlist) 
       {
-         for (Song song: playlist){
-            if (song.getLike()){
-               System.out.println(song.toString());
-            }
+         int minutes = Integer.parseInt(song.getDuration().substring(0,1));
+         totalMinutes = totalMinutes + minutes;
+
+         int seconds = Integer.parseInt(song.getDuration().substring(2,4));
+         totalSeconds = totalSeconds + seconds;
+
+      }
+      System.out.println((totalMinutes + (totalSeconds / 60)) + " Minutes " + (totalSeconds - ((totalSeconds / 60) * 60)) + " Seconds"); //NEED TO FIX SECONDS
+   }
+
+   /**
+    * removes all unliked songs in the playlist
+    */
+   public void removeUnlikes() //W.I.P
+   {
+      ArrayList<Song> l = new ArrayList<Song>();
+      for (Song i: playlist){
+         if (i.getLike()){
+            l.add(i);
          }
       }
-
-       public void getDuration()
-       {
-         int totalMinutes = 0;
-         int totalSeconds = 0;
-
-        for (Song song: playlist) 
-         {
-            int minutes = Integer.parseInt(song.getDuration().substring(0,1));
-            totalMinutes = totalMinutes + minutes;
-
-            int seconds = Integer.parseInt(song.getDuration().substring(2,4));
-            totalSeconds = totalSeconds + seconds;
-
-         }
-         System.out.println((totalMinutes + (totalSeconds / 60)) + " Minutes " + (totalSeconds - ((totalSeconds / 60) * 60)) + " Seconds"); //NEED TO FIX SECONDS
-       }
-
-      public int getPosition(Song x){
-         int pos = 0;
-         int fpos = 0;
-         for (Song song : playlist){
-            if (x.getTitle().equals(song.getTitle())){
-               fpos = pos;
-            }
-            else{
-               pos++;
-            }
-         }
-         return fpos;
+      playlist.clear();
+      for (Song x: l){
+         playlist.add(x);
       }
-
-
-       public void removeUnlikes() //W.I.P
-       {
-         
-       }
+            
+   }
 }
