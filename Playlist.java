@@ -90,13 +90,13 @@ public class Playlist {
          totalSeconds = totalSeconds + seconds;
 
       }
-      System.out.println((totalMinutes + (totalSeconds / 60)) + " Minutes " + (totalSeconds - ((totalSeconds / 60) * 60)) + " Seconds"); //NEED TO FIX SECONDS
+      System.out.println((totalMinutes + (totalSeconds / 60)) + " Minutes " + (totalSeconds - ((totalSeconds / 60) * 60)) + " Seconds");
    }
 
    /**
     * removes all unliked songs in the playlist
     */
-   public void removeUnlikes() //W.I.P
+   public void removeUnlikes()
    {
       ArrayList<Song> l = new ArrayList<Song>();
       for (Song i: playlist){
